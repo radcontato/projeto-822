@@ -4,13 +4,13 @@ import "firebase/firestore";
 import "firebase/storage";
 
 const firebaseConfig = {
-  apiKey: "AIzaSyBxyiIdZK-bsQ6zhoyV7XbR6isa0z68vYo",
-  authDomain: "projeto-dataextract.firebaseapp.com",
-  databaseURL: "https://projeto-dataextract.firebaseio.com",
-  projectId: "projeto-dataextract",
-  storageBucket: "projeto-dataextract.appspot.com",
-  messagingSenderId: "279208106435",
-  appId: "1:279208106435:web:c6dc66b98365a4b1b8c576",
+  apiKey: "AIzaSyBXHOQCYfD84BmItdHONToioRlNqHPGbBM",
+  authDomain: "projeto-822.firebaseapp.com",
+  databaseURL: "https://projeto-822.firebaseio.com",
+  projectId: "projeto-822",
+  storageBucket: "projeto-822.appspot.com",
+  messagingSenderId: "536470965945",
+  appId: "1:536470965945:web:3de6b5fd4d185ce8d55568"
 };
 
 export default !firebase.apps.length ? firebase.initializeApp(firebaseConfig) : firebase.app();
