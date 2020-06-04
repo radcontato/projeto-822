@@ -15,6 +15,7 @@
     "@react-navigation/stack": "^5.3.7",
     "axios": "^0.19.2",
     "expo": "^37.0.12",
+    "expo-google-app-auth": "^8.1.0",
     "expo-image-picker": "~8.1.0",
     "firebase": "7.9.0",
     "react": "~16.9.0",
