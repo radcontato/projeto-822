@@ -1,9 +1,7 @@
 import React from "react";
 import { View, Text, TextInput, StyleSheet, Button } from "react-native";
 import { } from './styles';
-
 import { AuthContext } from '../context';
-
 import firebase from 'firebase';
 
 export default CreateAccount = () => {
