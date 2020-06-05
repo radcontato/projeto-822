@@ -17,7 +17,8 @@ import { PermissionsAndroid } from 'react-native';
 
 import Geocoder from 'react-native-geocoding';
 
-const GOOGLE_MAPS_APIKEY = 'AIzaSyDZTFZmlozcHStX1an4PRVZMXdUwHJYqbs';
+import {secrets} from '../secretkey';
+const GOOGLE_MAPS_APIKEY = secrets.google_maps;
 
 const backgroundColor = '#007256';
 

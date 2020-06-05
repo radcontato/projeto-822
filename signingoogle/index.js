@@ -2,7 +2,9 @@ import React from "react";
 import { View, Text, StyleSheet, Button, Image } from "react-native";
 import * as Google from 'expo-google-app-auth'
 import { } from './styles';
-const GOOGLE_APIKEY = '4467894514-vkvnpas9pqrbs3rgmgi4a08o4m3aljs3.apps.googleusercontent.com';
+
+import {secrets} from '../secretkey';
+const GOOGLE_APIKEY = secrets.google_auth;
 
 import { AuthContext } from '../context';
 export default class SigninGoogle extends React.Component {
