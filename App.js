@@ -12,14 +12,17 @@ import Chat from './Chat';
 import Upload from './Upload';
 import Maps from './maps';
 import SigninGoogle from './signingoogle';
-
 import { FontAwesome5 } from '@expo/vector-icons';
-import { AuthContext } from './context';
 import firebase from './config/firebase';
+
+
+import { AuthContext } from './context';
 
 const AuthStack = createStackNavigator();
 const Tabs = createBottomTabNavigator();
 const Drawer = createDrawerNavigator();
+
+
 
 
 
@@ -80,16 +83,15 @@ export default () => {
 
   const [userToken, setUserToken] = React.useState(null);
 
-  React.useEffect(() => {
-    firebase.auth().onAuthStateChanged(user => {
-      if (user) {
-        setUserToken(user)
-      } else {
-        setUserToken(null)
-      }
-    })   
-  }, []);
-
+  // React.useEffect(() => {
+  //   firebase.auth().onAuthStateChanged(user => {
+  //     if (user) {
+  //       setUserToken(user)
+  //     } else {
+  //       setUserToken(null)
+  //     }
+  //   })
+  // }, []);
 
 
   const authContext = React.useMemo(() => {
@@ -104,7 +106,7 @@ export default () => {
 
     <AuthContext.Provider value={authContext}>
       <NavigationContainer>
-        {(userToken) ?
+        {userToken ?
           <Drawer.Navigator>
             <Drawer.Screen name="Home" component={TabsScreen} />
             <Drawer.Screen name="Profile" component={ProfileStackScreen} />

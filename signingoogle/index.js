@@ -4,6 +4,7 @@ import * as Google from 'expo-google-app-auth'
 import { } from './styles';
 const GOOGLE_APIKEY = '4467894514-vkvnpas9pqrbs3rgmgi4a08o4m3aljs3.apps.googleusercontent.com';
 
+import { AuthContext } from '../context';
 export default class SigninGoogle extends React.Component {
  
   constructor(props) {
@@ -14,7 +15,7 @@ export default class SigninGoogle extends React.Component {
       photoUrl: ""
     }
   }
-  signIn = async () => {
+  handleSignin = async () => {
     
     try {      
       const result = await Google.logInAsync({
@@ -39,9 +40,9 @@ export default class SigninGoogle extends React.Component {
     return (
       <View style={styles.container}>
         {this.state.signedIn ? (
-          <LoggedInPage name={this.state.name} photoUrl={this.state.photoUrl} />
+          <LoggedInPage />
         ) : (
-            <LoginPage signIn={this.signIn} />
+            <LoginPage handleSignin={this.handleSignin} />
           )}
       </View>
     )
@@ -53,16 +54,18 @@ const LoginPage = props => {
   return (
     <View>
       <Text style={styles.header}>Sign In With Google</Text>
-      <Button title="Sign in with Google" onPress={() => props.signIn()} />
+      <Button title="Sign in with Google" onPress={() => props.handleSignin()} />
     </View>
   )
 }
 
 const LoggedInPage = props => {
+  const { signIn } = React.useContext(AuthContext)
+  signIn();
   return (
     <View style={styles.container}>
       <Text style={styles.header}>Welcome:{props.name}</Text>
-      <Image style={styles.image} source={{ uri: props.photoUrl }} />
+   
     </View>
   )
 }

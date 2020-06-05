@@ -1,19 +1,22 @@
 import React from "react";
 import { View, Text, TextInput, StyleSheet, Button } from "react-native";
-//import { AuthContext } from '../context';
 import { } from './styles';
 import firebase from 'firebase';
 
-export default SignIn = ({ navigation }) => {
-   const [textEmail, setTextEmail] = React.useState('') 
+import { AuthContext } from '../context';
 
+export default SignIn = ({ navigation }) => {
+
+  const { signIn } = React.useContext(AuthContext)
+
+  const [textEmail, setTextEmail] = React.useState('')
   const [textPassword, setTextPassword] = React.useState('')
 
   const SignIn = () => {
     firebase
       .auth()
       .signInWithEmailAndPassword(textEmail, textPassword)
-      .then()       
+      .then(() => signIn())
       .catch(error => alert(error))
   }
 

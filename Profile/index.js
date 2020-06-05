@@ -3,13 +3,17 @@ import { View, Text, StyleSheet, Button } from "react-native";
 import { } from './styles';
 import firebase from 'firebase';
 
+import { AuthContext } from '../context';
+
 export default Profile = () => {
+
+  const { signOut } = React.useContext(AuthContext)
 
   const SignOut = () => {
     firebase
     .auth()
     .signOut()
-    .then()
+    .then(() => signOut())
     .catch(function (error) {
       alert(error)
     });
